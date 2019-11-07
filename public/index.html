@@ -2,11 +2,51 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="./stylesheet/style.css" type="text/css" />
+    <link rel="stylesheet" href="./stylesheets/style.css" type="text/css" />
 </head>
 
 <body>
-    <h1>Hello Worlds</h1>
+    <div id="app" class="parent">
+        <div class="header">
+            <h1><a href="#">> s p e a k</a></h1>
+        </div>
+
+        <div class="menu">
+            <span id="nav_menu">m e n u</span>
+        </div>
+
+        <div class="search">
+            <form @submit.prevent @kekyup.prevent>
+                <input id="search" type="text" placeholder="What are you looking for?" name="" />
+            </form>
+        </div>
+
+        <div class="user">
+            <p>This is your face:</p>
+        </div>
+
+        <div class="ads_left">
+            <p>Blah, blah, blah</p>
+        </div>
+
+        <div class="feed">
+            <h2>f e e d</h2>
+        </div>
+
+        <div class="ads_right">
+            <p>Blah, blah, blah</p>
+        </div>
+
+        <div class="footer">
+            <a href="#">GitHub</a>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script type="text/javascript" src="./javascripts/script.js"></script>
 </body>
 
 </html>

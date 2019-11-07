@@ -1,8 +1,134 @@
+.parent {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 4fr 1fr repeat(5, 2fr);
+  grid-column-gap: 1vw;
+  grid-row-gap: 0px;
+}
+
+.header {
+  grid-area: 1 / 1 / 2 / 2;
+  /*position: fixed;*/
+  left: 0;
+  top: 0;
+  height: 26.667vh;
+  width: 28.57vw;
+  font-variant: small-caps;
+  line-height: 20vh;
+  /*background-color: #414141;*/
+}
+
+.menu {
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: #3f8dca;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  text-align: right;
+  /*position: relative;*/
+  padding: 0 3vw;
+  line-height: 6.666vh;
+  font-size: 1.5em;
+}
+
+.search {
+  grid-area: 2 / 3 / 3 / 4;
+  background-color: #239c5b;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  text-align: center;
+  padding: 5px 0;
+}
+#search {
+  margin: auto;
+  padding: 5px 5px;
+  height: 4vh;
+  width: 80%;
+  border-radius: 25px;
+  border: hidden;
+  background-color: #3fca7f;
+  color: white;
+  font-size: 1em;
+}
+
+#search::placeholder {
+  color: white;
+  opacity: .9;
+}
+
+.user {
+  grid-area: 1 / 3 / 2 / 4;
+  /*background-color: #414141;*/
+}
+
+.feed {
+  grid-area: 1 / 2 / 8 / 3;
+  background-color: #414141;
+}
+
+.footer {
+  grid-area: 7 / 1 / 8 / 2;
+  background-color: #414141;
+  border-top-right-radius: 20px;
+  text-align: center;
+  line-height: 13vh;
+}
+
+.ads_right {
+  grid-area: 3 / 3 / 8 / 4;
+  background-color: #cac73f;
+}
+
+.ads_left {
+  grid-area: 3 / 1 / 7 / 2;
+  background-color: #cac73f;
+}
+
 body {
-  padding: 50px;
-  font: "Mono" monospace;
+  font-family: 'Chathura', sans-serif;
+  font-weight: lighter;
+  background-color: #313131;
+  color: white;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h1, h2 {
+  font-weight: lighter;
+  font-variant: small-caps;
 }
 
 a {
-  color: #00B7FF;
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+.menu ul {
+  display: inline-block;
+  margin: 0 auto;
+  height: auto;
+  padding: 10px 0;
+  text-align: center;
+  border: 2px solid cyan;
+  position: absolute;
+  left: 50;
+  right: 50;
+  margin-left: -2vw;
+}
+ul li {
+  list-style: none;
+  height: auto;
+  margin: 0;
+  border: 1px solid red;
+  font-size: 4vh;
+}
+
+#nav_menu {
+  font-variant: small-caps;
+  font-weight: lighter;
 }
