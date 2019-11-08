@@ -74,21 +74,41 @@ var app = new Vue({
        userStyle.color = 'white';
      },
 
-     getComments() {
-
+     async getComments() {
+         try {
+                const response = await axios.get('http://web.skouzini.info:4200/get_comments');
+                this.comments = response.data;
+            }
+            catch (error) {
+                console.log(error);
+            }
      },
 
-     postComment() {
-        this.time = moment().format('MMMM Do YYYY, h:mm:ss a');
+     async postComment() {
+    this.time = moment().format('MMMM Do YYYY, h:mm:ss a');
 
-        this.comments.unshift({
-          user: this.alias,
-          content: this.comment,
-          time: this.time,
-        });
+        // this.comments.unshift({
+        //   user: this.alias,
+        //   content: this.comment,
+        //   time: this.time,
+        // });
 
-        this.comment = '';
-        this.currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        // this.comment = '';
+        // this.currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        
+         try {
+                const response = await axios.post('http://web.skouzini.info:4200/post_comment', {
+                    user: this.alias,
+                    content: this.comment,
+                    time: this.time,
+                });
+                
+                this.content = '';
+                this.getComments();
+            }
+            catch (error) {
+                console.log(error);
+            }
      },
 
      deleteComment() {

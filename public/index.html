@@ -22,7 +22,7 @@
           </div>
 
           <div class="footer">
-              <a href="#">GitHub</a>
+              <a href="https://github.com/skouzini/creative-4">GitHub</a>
           </div>
         </div>
 
@@ -42,8 +42,8 @@
 
           <div class="comment" @mouseover="comment_active" @mouseleave="comment_leave" id="box">
             <form class="" action="index.html" @submit.prevent="postComment">
-              <textarea v-model.trim="comment" id="comment"></textarea><br/>
-              <input v-model.trim="alias" type="text" id="user" @focus="clearUser" autocomplete="false" required>
+              <textarea v-model.trim="comment" id="comment" placeholder="Speak your mind here..."></textarea><br/>
+              <input v-model.trim="alias" type="text" id="user" @focus="clearUser" autocomplete="false" placeholder="Who are you?" required>
               <input id="submit" type="submit" value="Speak">
             </form>
           </div>
