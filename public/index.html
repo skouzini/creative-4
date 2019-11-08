@@ -3,47 +3,74 @@
 
 <head>
     <link rel="stylesheet" href="./stylesheets/style.css" type="text/css" />
+    <title>&#62;freespeak</title>
 </head>
 
 <body>
     <div id="app" class="parent">
-        <div class="header">
-            <h1><a href="#">> s p e a k</a></h1>
-        </div>
+      <div class="left_bar">
+          <div class="header">
+              <h1><a href="#">&#62;freespeak</a></h1>
+          </div>
 
-        <div class="menu">
-            <span id="nav_menu">m e n u</span>
-        </div>
+          <div class="menu" id="menu" @mouseover="menu_hover" @mouseleave="menu_leave">
+              <span>menu</span>
+          </div>
 
-        <div class="search">
-            <form @submit.prevent @kekyup.prevent>
-                <input id="search" type="text" placeholder="What are you looking for?" name="" />
-            </form>
-        </div>
+          <div class="ads_left">
+              <p>Blah, blah, blah</p>
+          </div>
 
-        <div class="user">
-            <p>This is your face:</p>
-        </div>
-
-        <div class="ads_left">
-            <p>Blah, blah, blah</p>
+          <div class="footer">
+              <a href="#">GitHub</a>
+          </div>
         </div>
 
         <div class="feed">
-            <h2>f e e d</h2>
+          <div class="view">
+            <h2>feed</h2>
+            <ul>
+              <li v-for="comment in comments">
+                <hr>
+                <div class="feed_comment">
+                  <p>{{ comment.content }}</p>
+                </div>
+                <p><em>- {{ comment.user }}, {{ comment.time }}</em></p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="comment" @mouseover="comment_active" @mouseleave="comment_leave" id="box">
+            <form class="" action="index.html" @submit.prevent="postComment">
+              <textarea v-model.trim="comment" id="comment"></textarea><br/>
+              <input v-model.trim="alias" type="text" id="user" @focus="clearUser" autocomplete="false" required>
+              <input id="submit" type="submit" value="Speak">
+            </form>
+          </div>
         </div>
 
-        <div class="ads_right">
-            <p>Blah, blah, blah</p>
-        </div>
+        <div class="right_bar">
+          <div class="profile">
+              <p>This is where your face goes.</p>
+          </div>
 
-        <div class="footer">
-            <a href="#">GitHub</a>
-        </div>
+          <div class="search" id="searchBar"  @mouseover="search_hover" @mouseleave="search_leave">
+              <form @submit.prevent @kekyup.prevent>
+                  <input id="searchText" type="text" @focus="search_hover" @blur="search_leave" placeholder="What are you looking for?" autocomplete=""/>
+              </form>
+          </div>
 
+          <div class="ads_right">
+              <p>Blah, blah, blah</p>
+          </div>
+
+          <div class="settings">
+              <a href="#">Settings</a>
+          </div>
+        </div>
     </div>
 
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
     <script type="text/javascript" src="./javascripts/script.js"></script>
